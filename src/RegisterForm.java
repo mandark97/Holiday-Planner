@@ -12,21 +12,8 @@ public class RegisterForm
 
     public RegisterForm()
     {
-//        initComponents();
     }
 
-//    void initComponents()
-//    {
-//        mainFrame = new JFrame();
-//        mainFrame.setSize(1000,1000);
-//        username = new JTextField();
-//        email = new JTextField();
-//        password = new JPasswordField();
-//        mainFrame.add(username);
-//        mainFrame.add(email);
-//        mainFrame.add(password);
-//        mainFrame.setVisible(true);
-//    }
     public static void main(String[] args)
     {
         JFrame mainFrame = new JFrame();
