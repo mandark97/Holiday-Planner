@@ -1,18 +1,13 @@
 /**
  * Created by ManDark on 19-May-17.
  */
-public class Employee
+public class Employee extends User
 {
-    protected String firstName;
-    protected String lastName;
-    protected String password;
-    protected String email;
+    int vacantionDays;
 
-    protected Employee(String firstName, String lastName, String password, String email)
+    public Employee(String firstName, String lastName, String password, String email, int vacantionDays)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
+        super(firstName, lastName, password, email);
+        this.vacantionDays = vacantionDays;
     }
 }

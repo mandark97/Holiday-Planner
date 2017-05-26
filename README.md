@@ -14,3 +14,5 @@ Userul de HR  exista deja creat in baza si dupa logare e redirectionat intr-o in
 Userul de tip Angajat dupa login are o functionalitatea in care :
 -vede numarul de zile de concediu pe care le mai are in anul curent
 -vede toate zilele lui de concediu (din trecut sau viitor) intre 2 date (pe care le introduce el).
+
+
