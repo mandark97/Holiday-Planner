@@ -8,4 +8,15 @@ public class HR extends User
     {
         super(firstName, lastName, password, email);
     }
+
+    @Override
+    public String toString()
+    {
+        return "HR{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

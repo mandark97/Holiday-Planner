@@ -10,4 +10,16 @@ public class Employee extends User
         super(firstName, lastName, password, email);
         this.vacantionDays = vacantionDays;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", vacantionDays=" + vacantionDays +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
