@@ -59,12 +59,20 @@ public class HR_menu extends JFrame {
 		JButton addNewEmployee = new JButton("Add new Employee");
 		addNewEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Register_Employee.start();
 			}
 		});
 		addNewEmployee.setBounds(151, 91, 144, 23);
 		contentPane.add(addNewEmployee);
 		
 		JButton viewAllEmployees = new JButton("View all Employees");
+		viewAllEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AllEmployees.start(hrEmployee);
+			}
+		});
 		viewAllEmployees.setBounds(150, 125, 145, 23);
 		contentPane.add(viewAllEmployees);
 		
