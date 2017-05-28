@@ -60,7 +60,7 @@ public class HR_menu extends JFrame {
 		addNewEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Register_Employee.start();
+				Register_Employee.start(hrEmployee);
 			}
 		});
 		addNewEmployee.setBounds(151, 91, 144, 23);
