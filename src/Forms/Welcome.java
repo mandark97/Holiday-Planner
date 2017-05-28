@@ -73,9 +73,8 @@ public class Welcome extends JFrame {
 		JButton loginHR = new JButton("Login as HR");
 		loginHR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*dispose();
+				dispose();
 				Login_HR.start();
-				*/
 			}
 		});
 		loginHR.setBounds(151, 175, 144, 23);
