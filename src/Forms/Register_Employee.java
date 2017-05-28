@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import HolidayPlanner.Employee;
+import HolidayPlanner.HR;
 
 
 public class Register_Employee extends JFrame {
@@ -29,14 +30,16 @@ public class Register_Employee extends JFrame {
 	private JTextField email;
 	private JPasswordField password;
 	private JTextField vacantionDays;
+	private static HR hrEmployee;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void start(HR hr) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					hrEmployee = hr;
 					Register_Employee frame = new Register_Employee();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -140,7 +143,7 @@ public class Register_Employee extends JFrame {
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Welcome.start();
+				HR_menu.start(hrEmployee);
 			}
 		});
 		back.setBounds(10, 227, 89, 23);

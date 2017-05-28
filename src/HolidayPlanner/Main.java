@@ -21,6 +21,6 @@ public class Main {
 	        DBConnection.close();
 	        */
 		  
-		  	Welcome.start();
+			Welcome.start();
 	    }
 }

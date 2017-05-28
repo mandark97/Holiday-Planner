@@ -51,7 +51,7 @@ public class Employee extends User
 
     protected static User createUser(ResultSet rs) {
         try {
-            return new Employee(rs.getString("firstName"), rs.getString("password"),
+            return new Employee(rs.getString("firstName"), rs.getString("lastName"),
                     rs.getString("password"), rs.getString("email"), rs.getInt("vacantionDays"));
         } catch(SQLException e) {
             return null;
@@ -66,21 +66,30 @@ public class Employee extends User
         }
     }
 
-    public static ArrayList<Employee> getAllEmployees()
+    public static String[][] getAllEmployees()
     {
         try
         {
             Connection connection = DBConnection.getConnection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM " + dbSchema + "." + dbTable);
-            ArrayList<Employee> employees = new ArrayList<>();
+            ArrayList<String[]> employees = new ArrayList<>();
 
             while (rs.next())
-            {
-                employees.add((Employee)createUser(rs));
+            {	
+                employees.add(new String[]{rs.getString("firstName"), 
+                		rs.getString("lastName"), rs.getString("password"), 
+                		rs.getString("email"), rs.getString("vacantionDays")});
             }
-
-            return employees;
+            
+            
+            String[][] employeesData = new String[employees.size()][];
+            
+            for(int i = 0; i < employees.size(); i++) {
+            	employeesData[i] = employees.get(i);
+            }
+            
+            return employeesData;
         } catch (SQLException e)
         {
             return null;
