@@ -71,7 +71,7 @@ public class AddVacation_HR extends JFrame {
 							"Error",
 					        JOptionPane.ERROR_MESSAGE);
 
-			    String regex = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
+			    String regex = "^([0-2][0-9]||3[0-1])-(0[0-9]||1[0-2])-([0-9][0-9])?[0-9][0-9]$";
 				if(day.matches(regex))
 				{
 					System.out.println("Works");

@@ -1,6 +1,9 @@
 package HolidayPlanner;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.sun.xml.internal.bind.v2.model.core.ID;
@@ -119,10 +122,15 @@ public class Employee extends User
     	PreparedStatement statement = connection.prepareStatement( "INSERT INTO " + dbSchema + "." + "vacantiondays" +"(employee_id,day)"+ "VALUES(?,?)");
     	
 			statement.setString(1, String.valueOf(id));
-	    	statement.setString(1, day);
-	    	statement.executeQuery();
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			java.util.Date myDate = formatter.parse(day);
+	    	statement.setDate(2, new Date(myDate.getTime()));
+	    	statement.executeUpdate();
 	    this.vacantionDays--;
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
