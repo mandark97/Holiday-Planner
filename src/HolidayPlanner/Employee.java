@@ -126,9 +126,11 @@ public class Employee extends User
 		}
     }
     
-    public ArrayList<String> VacantionDays(String day1, String day2)
+    public String[][] VacantionDays(String day1, String day2)
     {
-		ArrayList<String> days = new ArrayList<>();
+		ArrayList<String[]> days = new ArrayList<>();
+		String[][] vacationDays;
+		
     	try{
     		Connection connection = DBConnection.getConnection();
     		Statement stm = connection.createStatement();
@@ -140,14 +142,19 @@ public class Employee extends User
     		ResultSet resultSet = statement.executeQuery("SELECT day FROM vacantionDays WHERE employee_id = "+id + " AND day BETWEEN '"+day1 +"' AND '"+day2+"'");
     		while(resultSet.next())
     		{
-    			days.add(resultSet.getString("day"));
+    			days.add(new String[] {resultSet.getString("day")});
     		}
+    		
+    		 vacationDays = new String[days.size()][];
+             
+             for(int i = 0; i < days.size(); i++) {
+             	vacationDays[i] = days.get(i);
+             }
     	}
     	catch (SQLException e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			return null;
 		}
-		return days;
+		return vacationDays;
     }
     static public Employee getEmployee(String email)
     {

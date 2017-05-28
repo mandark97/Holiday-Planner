@@ -87,7 +87,6 @@ public class Employee_view extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				ShowVacationDays.start(employee, startDate.getText(), endDate.getText());
-				
 			}
 		});
 		show.setBounds(139, 173, 89, 23);

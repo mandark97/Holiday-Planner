@@ -49,7 +49,7 @@ public class ShowVacationDays extends JFrame {
 	 */
 	public ShowVacationDays() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 561, 389);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,21 +67,20 @@ public class ShowVacationDays extends JFrame {
 				Employee_view.start(employee);
 			}
 		});
-		back.setBounds(26, 227, 89, 23);
+		back.setBounds(10, 302, 89, 23);
 		contentPane.add(back);
 	
-		/*
+		
 		 JScrollPane table = new JScrollPane(generateTable());
-	        table.setBounds(10, 54, 645, 196);
+	        table.setBounds(117, 51, 175, 223);
 	        contentPane.add(table);
-	        */
 	}
 	
 	private static JTable generateTable() {
 		String[] columns = {"Date"};
-		return new JTable();
-		//String[][] data = employee.getVacationDays(startDate, endDate);
-		//return new JTable(data, columns);
+		
+		String[][] data = employee.VacantionDays(startDate, endDate);
+		return new JTable(data, columns);
 	}
 	
 
