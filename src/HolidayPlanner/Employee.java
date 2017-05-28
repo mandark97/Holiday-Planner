@@ -111,14 +111,16 @@ public class Employee extends User
     	try {
     	Connection connection = DBConnection.getConnection();
     	Statement stm = connection.createStatement();
-    	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = "+this.email);
+    	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = '"+this.email+"'");
     	int id=0;
     	if(rSet.next())
     		id = rSet.getInt("employee_id");
-    	PreparedStatement statement = connection.prepareStatement( "INSERT INTO " + dbSchema + "." + "vacantionDays" +"(employee_id,day)"+ "VALUES(?,?)");
+    	System.out.println(id);
+    	PreparedStatement statement = connection.prepareStatement( "INSERT INTO " + dbSchema + "." + "vacantiondays" +"(employee_id,day)"+ "VALUES(?,?)");
     	
 			statement.setString(1, String.valueOf(id));
 	    	statement.setString(1, day);
+	    	statement.executeQuery();
 	    this.vacantionDays--;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

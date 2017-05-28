@@ -11,6 +11,7 @@ import HolidayPlanner.Employee;
 import HolidayPlanner.HR;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -64,9 +65,29 @@ public class AddVacation_HR extends JFrame {
 				String day = vacantionDay.getText();
 				String email = txtEmailemployee.getText();
 				emp = Employee.getEmployee(email); 
-				if(day.matches("([0-9]{2})//([0-9]{2})//([0-9]{4})"))
-				emp.addVacantionDay(day);
-			}
+				if(emp == null)
+					JOptionPane.showMessageDialog(contentPane,
+							"The email address you have entered is wrong", 
+							"Error",
+					        JOptionPane.ERROR_MESSAGE);
+
+			    String regex = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
+				if(day.matches(regex))
+				{
+					System.out.println("Works");
+					emp.addVacantionDay(day);
+					JOptionPane.showMessageDialog(contentPane,
+							"New day added successfully", 
+							"Register",
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+				else
+					JOptionPane.showMessageDialog(contentPane,
+							"The date you have entered is wrong", 
+							"Error",
+					        JOptionPane.ERROR_MESSAGE);
+				}
+			
 		});
 		btnAddDay.setBounds(233, 160, 155, 37);
 		contentPane.add(btnAddDay);
