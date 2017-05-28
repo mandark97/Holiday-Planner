@@ -126,18 +126,18 @@ public class Employee extends User
 		}
     }
     
-    public ArrayList<String> VacantionDays()
+    public ArrayList<String> VacantionDays(String day1, String day2)
     {
 		ArrayList<String> days = new ArrayList<>();
     	try{
     		Connection connection = DBConnection.getConnection();
     		Statement stm = connection.createStatement();
-        	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = "+this.email);
+        	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = '"+this.email+"'");
         	int id=0;
         	if(rSet.next())
         		id = rSet.getInt("employee_id");
     		Statement statement = connection.createStatement();
-    		ResultSet resultSet = statement.executeQuery("SELECT day FROM vacantionDays WHERE employee_id = "+id);
+    		ResultSet resultSet = statement.executeQuery("SELECT day FROM vacantionDays WHERE employee_id = "+id + " AND day BETWEEN '"+day1 +"' AND '"+day2+"'");
     		while(resultSet.next())
     		{
     			days.add(resultSet.getString("day"));
@@ -155,7 +155,7 @@ public class Employee extends User
     	Connection connection = DBConnection.getConnection();
     	Statement statement = connection.createStatement();
     	ResultSet rs;
-			rs = statement.executeQuery("SELECT * FROM employees WHERE email = "+email);
+			rs = statement.executeQuery("SELECT * FROM employees WHERE email = '"+email+"'")	;
     	if(rs.next())
     	return new Employee(rs.getString("firstName"), rs.getString("lastName"),
                 rs.getString("password"), rs.getString("email"), rs.getInt("vacantionDays"));
