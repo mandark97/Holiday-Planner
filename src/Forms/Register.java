@@ -5,7 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import HolidayPlanner.HR;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -19,6 +24,7 @@ public class Register extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	protected static final Register EmployeesList = null;
 	private JPanel contentPane;
 	private JTextField firstName;
 	private JTextField lastName;
@@ -96,7 +102,6 @@ public class Register extends JFrame {
 		register.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				/*
 				String emLastName = lastName.getText();
 				String emFirstName = firstName.getText();
 				String emEmail = email.getText();
@@ -112,11 +117,14 @@ public class Register extends JFrame {
 							"Error",
 					        JOptionPane.ERROR_MESSAGE);
 				} else {
-					dispose();
-					EmployeesList.start();
+					//dispose();
+					//EmployeesList.start();
+					JOptionPane.showMessageDialog(contentPane,
+							"You registered as HR successfully", 
+							"Register",
+					        JOptionPane.INFORMATION_MESSAGE);
 					
 				}
-				*/
 			}
 		});
 		register.setBounds(162, 172, 89, 23);
