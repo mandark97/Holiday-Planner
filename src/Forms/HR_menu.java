@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class HR_menu extends JFrame {
 
@@ -89,5 +91,16 @@ public class HR_menu extends JFrame {
 		JLabel HRName = new JLabel("Welcome, " + hrEmployee.getName() + "!");
 		HRName.setBounds(132, 54, 181, 14);
 		contentPane.add(HRName);
+		
+		JButton AddVacantion = new JButton("Add Vacantion Days");
+		AddVacantion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				AddVacation_HR.start(hrEmployee);
+			}
+		});
+		AddVacantion.setBounds(151, 163, 144, 23);
+		contentPane.add(AddVacantion);
 	}
 }
