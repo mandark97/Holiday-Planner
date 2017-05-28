@@ -53,9 +53,8 @@ public class Welcome extends JFrame {
 		JButton loginEmployee = new JButton("Login as employee");
 		loginEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			/*	dispose();
+				dispose();
 				Login_employee.start();
-				*/
 			}
 		});
 		loginEmployee.setBounds(151, 125, 144, 23);
