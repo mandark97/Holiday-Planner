@@ -1,3 +1,5 @@
+package HolidayPlanner;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,5 +57,9 @@ public abstract class User
         }
 
         return null;
+    }
+    
+    public String getName() {
+    	return this.firstName + " " + this.lastName;
     }
 }
