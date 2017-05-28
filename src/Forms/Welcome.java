@@ -64,7 +64,7 @@ public class Welcome extends JFrame {
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Register.start();
+				Register_HR.start();
 			}
 		});
 		register.setBounds(174, 65, 89, 23);

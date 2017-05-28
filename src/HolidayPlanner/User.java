@@ -58,4 +58,8 @@ public abstract class User
 
         return null;
     }
+    
+    public String getName() {
+    	return this.firstName + " " + this.lastName;
+    }
 }

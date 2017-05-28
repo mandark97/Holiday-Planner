@@ -18,13 +18,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Register extends JFrame {
+public class Register_HR extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final Register EmployeesList = null;
+	protected static final Register_HR EmployeesList = null;
 	private JPanel contentPane;
 	private JTextField firstName;
 	private JTextField lastName;
@@ -38,7 +38,7 @@ public class Register extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Register frame = new Register();
+					Register_HR frame = new Register_HR();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class Register extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Register() {
+	public Register_HR() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();

@@ -85,18 +85,22 @@ public class Login_HR extends JFrame {
 				String employeeEmail = email.getText();
 				String employeePassword = new String(password.getPassword());
 				
-				HR em = (HR) HR.login(employeeEmail, employeePassword);
+				HR hr = (HR) HR.login(employeeEmail, employeePassword);
 				
-				if(em == null) {
+				if(hr == null) {
 					JOptionPane.showMessageDialog(contentPane,
 							"Your email or password is incorrect", 
 							"Login Failed",
 					        JOptionPane.ERROR_MESSAGE);
 				} else {
-					JOptionPane.showMessageDialog(contentPane,
+					/*JOptionPane.showMessageDialog(contentPane,
 							"You logged in successfully", 
 							"Login successful",
 					        JOptionPane.INFORMATION_MESSAGE);
+					 */
+					dispose();
+					HR_menu.start(hr);
+					
 				}
 			}
 		});
