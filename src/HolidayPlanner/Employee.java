@@ -3,6 +3,8 @@ package HolidayPlanner;
 import java.sql.*;
 import java.util.ArrayList;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
 
 public class Employee extends User
 {
@@ -95,6 +97,73 @@ public class Employee extends User
             return null;
         }
 
+    }
+    public int getVacantionDays()
+    {
+    	return this.vacantionDays;
+    }
+    public void setVacantionDays(int vacantionDays)
+    {
+    	this.vacantionDays=vacantionDays;
+    }
+    public void addVacantionDay(String day)
+    {
+    	try {
+    	Connection connection = DBConnection.getConnection();
+    	Statement stm = connection.createStatement();
+    	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = "+this.email);
+    	int id=0;
+    	if(rSet.next())
+    		id = rSet.getInt("employee_id");
+    	PreparedStatement statement = connection.prepareStatement( "INSERT INTO " + dbSchema + "." + "vacantionDays" +"(employee_id,day)"+ "VALUES(?,?)");
+    	
+			statement.setString(1, String.valueOf(id));
+	    	statement.setString(1, day);
+	    this.vacantionDays--;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public ArrayList<String> VacantionDays()
+    {
+		ArrayList<String> days = new ArrayList<>();
+    	try{
+    		Connection connection = DBConnection.getConnection();
+    		Statement stm = connection.createStatement();
+        	ResultSet rSet = stm.executeQuery("SELECT employee_id FROM employees WHERE email = "+this.email);
+        	int id=0;
+        	if(rSet.next())
+        		id = rSet.getInt("employee_id");
+    		Statement statement = connection.createStatement();
+    		ResultSet resultSet = statement.executeQuery("SELECT day FROM vacantionDays WHERE employee_id = "+id);
+    		while(resultSet.next())
+    		{
+    			days.add(resultSet.getString("day"));
+    		}
+    	}
+    	catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return days;
+    }
+    static public Employee getEmployee(String email)
+    {
+    	try {
+    	Connection connection = DBConnection.getConnection();
+    	Statement statement = connection.createStatement();
+    	ResultSet rs;
+			rs = statement.executeQuery("SELECT * FROM employees WHERE email = "+email);
+    	if(rs.next())
+    	return new Employee(rs.getString("firstName"), rs.getString("lastName"),
+                rs.getString("password"), rs.getString("email"), rs.getInt("vacantionDays"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return null;
     }
       
 }
