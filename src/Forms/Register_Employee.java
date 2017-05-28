@@ -8,10 +8,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import HolidayPlanner.Employee;
 
 
 public class Register_Employee extends JFrame {
@@ -25,6 +28,7 @@ public class Register_Employee extends JFrame {
 	private JTextField lastName;
 	private JTextField email;
 	private JPasswordField password;
+	private JTextField vacantionDays;
 
 	/**
 	 * Launch the application.
@@ -97,15 +101,20 @@ public class Register_Employee extends JFrame {
 		register.addActionListener(new ActionListener() {
 		
 			public void actionPerformed(ActionEvent e) {
-				/*
 				String emLastName = lastName.getText();
 				String emFirstName = firstName.getText();
 				String emEmail = email.getText();
 				String emPassword = new String(password.getPassword());
+				int emVacantionDays = 0;				
+				
+				if(!vacantionDays.getText().isEmpty()) {
+					emVacantionDays = Integer.parseInt(vacantionDays.getText());
+				}
+
 				
 				
-				HR hr = new HR(emLastName, emFirstName, emPassword, emEmail);
-				boolean added = hr.register();
+				Employee em = new Employee(emLastName, emFirstName, emPassword, emEmail, emVacantionDays);
+				boolean added = em.register();
 				
 				if(added == false) {
 					JOptionPane.showMessageDialog(contentPane,
@@ -116,16 +125,15 @@ public class Register_Employee extends JFrame {
 					//dispose();
 					//EmployeesList.start();
 					JOptionPane.showMessageDialog(contentPane,
-							"You registered as HR successfully", 
+							"New Employee added successfully", 
 							"Register",
 					        JOptionPane.INFORMATION_MESSAGE);
 					
 				}
-				*/
 			}
 		
 		});
-		register.setBounds(162, 172, 89, 23);
+		register.setBounds(164, 189, 89, 23);
 		contentPane.add(register);
 		
 		JButton back = new JButton("Back");
@@ -137,6 +145,14 @@ public class Register_Employee extends JFrame {
 		});
 		back.setBounds(10, 227, 89, 23);
 		contentPane.add(back);
+		
+		JLabel lblNewLabel_4 = new JLabel("Vacation Days");
+		lblNewLabel_4.setBounds(53, 155, 106, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		vacantionDays = new JTextField();
+		vacantionDays.setBounds(193, 152, 192, 20);
+		contentPane.add(vacantionDays);
+		vacantionDays.setColumns(10);
 	}
-
 }
