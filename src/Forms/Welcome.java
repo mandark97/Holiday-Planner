@@ -50,37 +50,36 @@ public class Welcome extends JFrame {
 		lblHolidayPlanner.setBounds(151, 11, 144, 32);
 		contentPane.add(lblHolidayPlanner);
 		
-		JButton btnNewButton = new JButton("Login as employee");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton loginEmployee = new JButton("Login as employee");
+		loginEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			/*	dispose();
 				Login_employee.start();
 				*/
 			}
 		});
-		btnNewButton.setBounds(151, 125, 144, 23);
-		contentPane.add(btnNewButton);
+		loginEmployee.setBounds(151, 125, 144, 23);
+		contentPane.add(loginEmployee);
 		
-		JButton btnRegister = new JButton("Register");
-		btnRegister.addActionListener(new ActionListener() {
+		JButton register = new JButton("Register");
+		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*dispose();
+				dispose();
 				Register.start();
-				*/
 			}
 		});
-		btnRegister.setBounds(174, 65, 89, 23);
-		contentPane.add(btnRegister);
+		register.setBounds(174, 65, 89, 23);
+		contentPane.add(register);
 		
-		JButton btnNewButton_1 = new JButton("Login as HR");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton loginHR = new JButton("Login as HR");
+		loginHR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/*dispose();
 				Login_HR.start();
 				*/
 			}
 		});
-		btnNewButton_1.setBounds(151, 175, 144, 23);
-		contentPane.add(btnNewButton_1);
+		loginHR.setBounds(151, 175, 144, 23);
+		contentPane.add(loginHR);
 	}
 }

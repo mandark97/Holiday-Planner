@@ -1,11 +1,12 @@
 package HolidayPlanner;
 
-import java.util.ArrayList;
+import Forms.Welcome;
 
 public class Main {
 
 	  public static void main(String[] args)
 	    {
+		  	/*
 	        Employee em = new Employee("Test","Test","123456", "test@gmail.com",10);
 
 	        if(em.register()) {
@@ -18,5 +19,8 @@ public class Main {
 	        employees.forEach(System.out::println);
 
 	        DBConnection.close();
+	        */
+		  
+		  	Welcome.start();
 	    }
 }
