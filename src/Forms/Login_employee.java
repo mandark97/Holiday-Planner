@@ -93,10 +93,14 @@ public class Login_employee extends JFrame {
 							"Login Failed",
 					        JOptionPane.ERROR_MESSAGE);
 				} else {
+					/*
 					JOptionPane.showMessageDialog(contentPane,
 							"You logged in successfully", 
 							"Login successful",
 					        JOptionPane.INFORMATION_MESSAGE);
+					        */
+					dispose();
+					Employee_view.start(em);
 				}
 			}
 		});
